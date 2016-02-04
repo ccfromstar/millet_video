@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<style>
+			body {
+				margin: 0;
+			}
+			
+			video {
+				width: 100%;
+			}
+			
+			li {
+				padding: 10px;
+				border: 1px solid #eee;
+			}
+			
+			ul {
+				list-style: outside none none;
+				padding: 0;
+				margin: 0;
+			}
+			
+			.toBottom {
+				animation: videotransf 4s;
+				-webkit-animation: videotransf 4s;
+				width: 40%;
+				position: fixed;
+				bottom: 0;
+				right: 0;
+			}
+			
+			@keyframes videotransf {
+				0% {
+					width: 100%;
+					position: absolute;
+					right: 0;
+					bottom: 100%;
+				}
+				100% {
+					width: 40%;
+					position: fixed;
+					bottom: 0;
+					right: 0;
+				}
+			}
+			
+			@-webkit-keyframes videotransf {
+				0% {}
+				100% {}
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<video src="http://blog.youlunshidai.com/video0008.mp4" autoplay controls loop></video>
+
+		<!--视频列表-->
+		<ul>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+			<li>视频名称</li>
+		</ul>
+		<script>
+			$(window).scroll(function() {
+				var _height = $('video').height();
+				var currTop = $(window).scrollTop();
+				if (currTop > _height) {
+					$('video').addClass('toBottom');
+				} else if (currTop == 0) {
+					$('video').removeClass('toBottom');
+				}
+			});
+			$('video').click(function() {
+				$('video').removeClass('toBottom');
+				$('body,html').animate({
+					scrollTop: 0
+				}, 100);
+				return false;
+			});
+		</script>
+	</body>
+
+</html>
